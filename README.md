@@ -25,8 +25,8 @@ Numerical:
   * Production budget  
   * Rotten Tomato Critic Rating  
   * Rotten Tomato User Rating  
-  * Year Released  
-  * Month Released  
+  * Year released  
+  * Month released  
   
 Categorical (created through get_dummies() pandas call):  
   * Genre  
