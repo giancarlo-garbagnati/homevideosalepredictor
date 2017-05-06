@@ -42,13 +42,15 @@ Total video sales (dvd + bluray sales), after an 8 week period
 Training/test set - 1505 movies from 2006 to 2015  
 Hold out set - 91 movies from 2016  
 
-### Modeling
+### Modeling/Results
+
+#### Linear Regression / Baseline  
 
 To create a sort of baseline to compare the other models to, I build a linear regression 'out of the box' model that included all the features listed above and no engineered features. From a 70/30 train/test split from the train/test data set and using root-mean-square error as a metric, we get:  
 ```
 RMSE = 2.1805e7
 ```  
-Let's now take a look at how our predictions look like compared to the actual values, graphically.  
+As a reminder: in general, we want to minimize this number to get an improved model. Let's now take a look at how our predictions look like compared to the actual values, graphically.  
 
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-test.png "Predictions vs Actual (Test set)")  
 
@@ -58,4 +60,37 @@ This is a scatterplot graph of our predictions (on the x-axis) against the actua
 
 Here we can see our predicted values are quite off. However, what we also can see from this scatterplot (as well as from others not included), there's a bit of an exponential curve. This could be a scaling issue (ie. building a model using really large budget numbers alongside really small rating numbers can cause this).
 
-Baseline, redux. So assuming this is the case, one thing we can do is to transform the target values (home video sales numbers, the 'y'/target model values). So we redo the baseline model with this new transformed target values.
+#### Linear Regression, redux  
+
+So assuming this is the case, one thing we can do is to transform the target values (home video sales numbers, the 'y'/target model values). So I redid the baseline model with this new transformed target values. Additionally, with this transformation, we can't simply use RSME anymore; we have to use 10^RMSE, which gives us:  
+```
+10^RMSE = 2.38
+```  
+This isn't as interpretive as just RMSE by itself, but it can still work as a metric to compare models against each other. Just as RMSE by itself, we want to minimize this as we try to build improved models.  
+
+Let's look at our scatterplots now:  
+
+Predictions vs Actual (Test Set):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-test-tformed.png "Predictions vs Actual (Test set) - updated")  
+
+Predictions vs Actual (Holdout Set):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-holdout-tformed.png "Predictions vs Actual (Holdout set) - updated")  
+
+These are a better than before, though it's still looking like we're overpredicting on the holdout set for some of the underperforming 2016 movies.  
+
+Next, I tried two more tree-based models: random forest and gradient boosting.  
+
+#### Random Forest  
+
+With these more advanced models, there are more hyperparameters (tuning knobs, if you will) than linear regression). However, we'll start with an 'out-of-the-box' random forest model (RF1), using the default hyperparameter values from the scikit-learn implementation of random forest. This is performed on a 70/30 train/test split.
+```
+10^RMSE = 2.0579
+```  
+We'll compare this with two other random forest models that I tinkered with. RF2 uses 1000 estimators ('trees') and a min_samples_leaf of 5 (minimum number of samples on a estimator leaf node before you stop splitting on that node). Also performed on a 70/30 split.
+```
+10^RMSE = 1.9822
+```
+RF3 used GridSearch and cross-validation to determine hyperparameter values of 3000 estimators, a min_samples_leaf of 5, and a min_samples_split of 2 (min number of sampels required to split in an internal node). This performs relatively as well as the above.
+```
+10^RMSE = 1.9887
+```
