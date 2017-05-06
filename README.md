@@ -52,8 +52,10 @@ Let's now take a look at how our predictions look like compared to the actual va
 
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-test.png "Predictions vs Actual (Test set)")  
 
-
+This is a scatterplot graph of our predictions (on the x-axis) against the actual values (on the y-axis) for home video sales for the train/test set. The red line is simply just a one-to-one line, where if we had a perfect prediction model the blue dots would line up on exactly on. From this, we can see that our model doesn't look too bad right now, though we tend to be erring more often on overpredicting the home video sale values. Now, let's look at how well this model does on 2016 movies (the holdout set):
 
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-holdout.png "Predictions vs Actual (Holdout set)")  
 
+Here we can see our predicted values are quite off. However, what we also can see from this scatterplot (as well as from others not included), there's a bit of an exponential curve. This could be a scaling issue (ie. building a model using really large budget numbers alongside really small rating numbers can cause this).
 
+Baseline, redux. So assuming this is the case, one thing we can do is to transform the target values (home video sales numbers, the 'y'/target model values). So we redo the baseline model with this new transformed target values.
