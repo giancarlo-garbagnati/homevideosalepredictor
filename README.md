@@ -71,3 +71,6 @@ Predictions vs Actual (Test Set):
 
 Predictions vs Actual (Holdout Set):  
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-holdout-tformed.png "Predictions vs Actual (Holdout set) - updated")  
+
+These are a better than before, though it's still looking like we're overpredicting on the holdout set for some of the underperforming 2016 movies.  
+
