@@ -48,7 +48,7 @@ To create a sort of baseline to compare the other models to, I build a linear re
 ```
 RMSE = 2.1805e7
 ```  
-Let's now take a look at how our predictions look like compared to the actual values, graphically.  
+As a reminder: in general, we want to minimize this number to get an improved model. Let's now take a look at how our predictions look like compared to the actual values, graphically.  
 
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-test.png "Predictions vs Actual (Test set)")  
 
@@ -58,4 +58,8 @@ This is a scatterplot graph of our predictions (on the x-axis) against the actua
 
 Here we can see our predicted values are quite off. However, what we also can see from this scatterplot (as well as from others not included), there's a bit of an exponential curve. This could be a scaling issue (ie. building a model using really large budget numbers alongside really small rating numbers can cause this).
 
-Baseline, redux. So assuming this is the case, one thing we can do is to transform the target values (home video sales numbers, the 'y'/target model values). So we redo the baseline model with this new transformed target values.
+Baseline, redux. So assuming this is the case, one thing we can do is to transform the target values (home video sales numbers, the 'y'/target model values). So I redid the baseline model with this new transformed target values. Additionally, with this transformation, we can't simply use RSME anymore; we have to use 10^RMSE, which gives us:  
+```
+10^RMSE = 2.38
+```  
+This isn't as interpretive as just RMSE by itself, but it can still work as a metric to compare models against each other.  
