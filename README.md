@@ -82,3 +82,15 @@ Next, I tried two more tree-based models: random forest and gradient boosting.
 
 #### Random Forest  
 
+With these more advanced models, there are more hyperparameters (tuning knobs, if you will) than linear regression). However, we'll start with an 'out-of-the-box' random forest model (RF1), using the default hyperparameter values from the scikit-learn implementation of random forest. This is performed on a 70/30 train/test split.
+```
+10^RMSE = 2.0579
+```  
+We'll compare this with two other random forest models that I tinkered with. RF2 uses 1000 estimators ('trees') and a min_samples_leaf of 5 (minimum number of samples on a estimator leaf node before you stop splitting on that node). Also performed on a 70/30 split.
+```
+10^RMSE = 1.9822
+```
+RF3 used GridSearch and cross-validation to determine hyperparameter values of 3000 estimators, a min_samples_leaf of 5, and a min_samples_split of 2 (min number of sampels required to split in an internal node). This performs relatively as well as the above.
+```
+10^RMSE = 1.9887
+```
