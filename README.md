@@ -94,3 +94,9 @@ RF3 used GridSearch and cross-validation to determine hyperparameter values of 3
 ```
 10^RMSE = 1.9887
 ```
+The scatterplots for RF2 look like:
+Predictions vs Actual (Test Set):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/RF2-test.png "RF2-Predictions vs Actual (Test set)")  
+
+Predictions vs Actual (Holdout Set):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/RF2-holdout.png "RF2-Predictions vs Actual (Holdout set)")  
