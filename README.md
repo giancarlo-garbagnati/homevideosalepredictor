@@ -100,3 +100,8 @@ Predictions vs Actual (Test Set):
 
 Predictions vs Actual (Holdout Set):  
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/RF2-holdout.png "RF2-Predictions vs Actual (Holdout set)")  
+
+From both 10^RMSE and visually looking at the scatterplots, we can see that we've already improved on the linear regression model. I'll now move on to my gradient boosting models.  
+
+#### Gradient Boosting  
+
