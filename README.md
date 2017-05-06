@@ -62,4 +62,10 @@ Baseline, redux. So assuming this is the case, one thing we can do is to transfo
 ```
 10^RMSE = 2.38
 ```  
-This isn't as interpretive as just RMSE by itself, but it can still work as a metric to compare models against each other.  
+This isn't as interpretive as just RMSE by itself, but it can still work as a metric to compare models against each other. Just as RMSE by itself, we want to minimize this as we try to build improved models.  
+
+Let's look at our scatterplots now:  
+
+Predictions vs Actual (Test Set): ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-test-tformed.png "Predictions vs Actual (Test set) - updated")  
+
+Predictions vs Actual (Holdout Set): ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-holdout-tformed.png "Predictions vs Actual (Holdout set) - updated")  
