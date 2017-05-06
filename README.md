@@ -17,18 +17,21 @@ The top 200 movies from each year from 2006 to 2015 (+ 2016) was scraped from bo
 ## Dataset
 
 ### Variables  
-Numerical:  
+The following features are the variables that were scrapped, but not necessarily all that was engineered:  
+
+##### Numerical:  
   * Domestic total gross adjusted to 2016  
   * Movie runtime  
   * MPAA rating (converted to an ordinal numerical value)  
   * Opening weekend value  
+  * Widest release (number of theaters showing movie at point widest release)
   * Production budget  
   * Rotten Tomato Critic Rating  
   * Rotten Tomato User Rating  
   * Year released  
   * Month released  
   
-Categorical (created through get_dummies() pandas call):  
+##### Categorical (created through get_dummies() pandas call):  
   * Genre  
   * Director  
 
@@ -36,5 +39,21 @@ Categorical (created through get_dummies() pandas call):
 Total video sales (dvd + bluray sales), after an 8 week period
 
 ### Data Sets
-Training/test set - movies from the 10 year period of 2006 to 2015 (1505 total movies)  
+Training/test set - 1505 movies from 2006 to 2015  
 Hold out set - 91 movies from 2016  
+
+### Modeling
+
+To create a sort of baseline to compare the other models to, I build a linear regression 'out of the box' model that included all the features listed above and no engineered features. From a 70/30 train/test split from the train/test data set and using root-mean-square error as a metric, we get:  
+```
+RMSE = 2.1805e7
+```  
+Let's now take a look at how our predictions look like compared to the actual values, graphically.  
+
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-holdout.png "Predictions vs Actual (Test set)")
+
+
+
+
+
+
