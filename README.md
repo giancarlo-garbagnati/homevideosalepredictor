@@ -42,7 +42,9 @@ Total video sales (dvd + bluray sales), after an 8 week period
 Training/test set - 1505 movies from 2006 to 2015  
 Hold out set - 91 movies from 2016  
 
-### Modeling
+### Modeling/Results
+
+#### Linear Regression / Baseline  
 
 To create a sort of baseline to compare the other models to, I build a linear regression 'out of the box' model that included all the features listed above and no engineered features. From a 70/30 train/test split from the train/test data set and using root-mean-square error as a metric, we get:  
 ```
@@ -58,7 +60,9 @@ This is a scatterplot graph of our predictions (on the x-axis) against the actua
 
 Here we can see our predicted values are quite off. However, what we also can see from this scatterplot (as well as from others not included), there's a bit of an exponential curve. This could be a scaling issue (ie. building a model using really large budget numbers alongside really small rating numbers can cause this).
 
-Baseline, redux. So assuming this is the case, one thing we can do is to transform the target values (home video sales numbers, the 'y'/target model values). So I redid the baseline model with this new transformed target values. Additionally, with this transformation, we can't simply use RSME anymore; we have to use 10^RMSE, which gives us:  
+#### Linear Regression, redux  
+
+So assuming this is the case, one thing we can do is to transform the target values (home video sales numbers, the 'y'/target model values). So I redid the baseline model with this new transformed target values. Additionally, with this transformation, we can't simply use RSME anymore; we have to use 10^RMSE, which gives us:  
 ```
 10^RMSE = 2.38
 ```  
@@ -73,4 +77,8 @@ Predictions vs Actual (Holdout Set):
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-holdout-tformed.png "Predictions vs Actual (Holdout set) - updated")  
 
 These are a better than before, though it's still looking like we're overpredicting on the holdout set for some of the underperforming 2016 movies.  
+
+Next, I tried two more tree-based models: random forest and gradient boosting.  
+
+#### Random Forest  
 
