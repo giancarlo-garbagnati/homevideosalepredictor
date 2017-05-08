@@ -54,7 +54,7 @@ As a reminder: in general, we want to minimize this number to get an improved mo
 
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-test.png "Predictions vs Actual (Test set)")  
 
-This is a scatterplot graph of our predictions (on the x-axis) against the actual values (on the y-axis) for home video sales for the train/test set. The red line is simply just a one-to-one line, where if we had a perfect prediction model the blue dots would line up on exactly on. From this, we can see that our model doesn't look too bad right now, though we tend to be erring more often on overpredicting the home video sale values. Now, let's look at how well this model does on 2016 movies (the holdout set):
+This is a scatterplot graph of our predictions (on the x-axis) against the actual values (on the y-axis) for home video sales for the train/test set. Each blue dot represents one movie in the dataset, where its position on the y-axis represents the actual home video sale value and its position on the x-axis represents the model's prediction. The red line is simply just a one-to-one line, where if we had a perfect prediction model the blue dots would line up on exactly on. From this, we can see that our model doesn't look too bad right now, though we tend to be erring more often on overpredicting the home video sale values. Now, let's look at how well this model does on 2016 movies (the holdout set):
 
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/LR1-holdout.png "Predictions vs Actual (Holdout set)")  
 
