@@ -82,7 +82,7 @@ Next, I tried two more tree-based models: random forest and gradient boosting.
 
 #### Random Forest  
 
-With these more advanced models, there are more hyperparameters (tuning knobs, if you will) than linear regression). However, we'll start with an 'out-of-the-box' random forest model (RF1), using the default hyperparameter values from the scikit-learn implementation of random forest. This is performed on a 70/30 train/test split.
+With these more advanced models, there are more hyperparameters (tuning knobs, if you will) than linear regression. However, we'll start with an 'out-of-the-box' random forest model (RF1), using the default hyperparameter values from the scikit-learn implementation of random forest. This is performed on a 70/30 train/test split.
 ```
 10^RMSE = 2.0579
 ```  
@@ -90,7 +90,7 @@ We'll compare this with two other random forest models that I tinkered with. RF2
 ```
 10^RMSE = 1.9822
 ```
-RF3 used GridSearch and cross-validation to determine hyperparameter values of 3000 estimators, a min_samples_leaf of 5, and a min_samples_split of 2 (min number of sampels required to split in an internal node). This performs relatively as well as the above.
+RF3 used GridSearch and cross-validation to determine hyperparameter values of 3000 estimators, a min_samples_leaf of 9, and a min_samples_split of 2 (min number of sampels required to split in an internal node). This performs relatively as well as the above.
 ```
 10^RMSE = 1.9887
 ```
@@ -105,3 +105,15 @@ From both 10^RMSE and visually looking at the scatterplots, we can see that we'v
 
 #### Gradient Boosting  
 
+Finally, I tried some gradient boosting models. The out-of-the-box gradient boosting model (GB1) from scikit-learn gets us:
+```
+10^RMSE = 1.9921
+```
+with a 70/30 split. This is better than the random forest out-of-the-box, but this isn't our best result. Since gradient boosting models are also based off of decision trees, we have a lot of the same hyper parameters as random forest. Thus, the next model I tried used the same hyper parameters used in the grid searched random forest model (above), in addition to a learning rate (alpha) of 0.1 and each boosting stage (n_estimator) used a subsample of 0.8. The loss function for this (and all the gradient boosting models used here) is the default one of least squared regression.
+```
+10^RMSE = 2.0867
+```
+So I went through a few more iterations of hyper parameter tweaking. Additionally, I removed some of the variables (all the directors)
+
+
+, a max number of features (max number of features to look at before deciding on a split) of 5, 
