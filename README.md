@@ -113,7 +113,14 @@ with a 70/30 split. This is better than the random forest out-of-the-box, but th
 ```
 10^RMSE = 2.0867
 ```
-So I went through a few more iterations of hyper parameter tweaking. Additionally, I removed some of the variables (all the directors)
-
+So I went through a few more iterations of hyper parameter tweaking. Additionally, I removed some of the variables (all the directors). This model iteration (GB7):  
+```python
+gbmodel7 = GradientBoostingRegressor(subsample = 0.9, n_estimators = 3000, random_state = 1000, 
+                                     learning_rate = 0.001, min_samples_leaf = 16, max_depth=5)
+```  
+performed the best of the gradient boosting models I tried.
+```
+10^RMSE = 1.9629
+```
 
 , a max number of features (max number of features to look at before deciding on a split) of 5, 
