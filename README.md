@@ -170,7 +170,12 @@ gbmodel11 = GradientBoostingRegressor(subsample = 0.9, n_estimators = 3000, rand
 ```
 10^RMSE = 2.5013
 ```  
+Scatterplots for GB11:
+Predictions vs Actual (Test Set):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB11-test.png "GB11-Predictions vs Actual (Test set)")  
 
+Predictions vs Actual (Holdout Set):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB11-holdout.png "GB11-Predictions vs Actual (Holdout set)")  
 
 
 
