@@ -129,7 +129,26 @@ Predictions vs Actual (Test Set):
 Predictions vs Actual (Holdout Set):  
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB7-holdout.png "GB7-Predictions vs Actual (Holdout set)")  
 
+#### Feature Importances  
+
+Most times it's just as (if not more) important to know how much each variable affects the final result than the prediction itself. That's where feature importances comes into. Here're the top feature importances from the GB7 model (described above):  
+
+|Feature        |Importance|
+|:-------------:|:--------:|
+|dtg2016a       |0.420063  |
+|reldate        |0.194056  |
+|opwknd         |0.091252  |
+|rt_user        |0.059876  |
+|prodbud        |0.058187  |
+|open_over_total|0.032693  |
+|runtime        |0.030375  |
+|rt_critic      |0.026028  |
+|month          |0.016677  |
+|mpaarating     |0.016345  |
 
 
 
-, a max number of features (max number of features to look at before deciding on a split) of 5, 
+
+It's not a perfect means of looking at variables and their influence on multivariable models, but it gives some insight into this. Sometimes, building a simple linear regression model is more desirable, as linear regression models' it 
+
+
