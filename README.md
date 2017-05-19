@@ -160,7 +160,7 @@ Now, let's make this model more actionable. What do I mean by this? The models d
 
 Let's say we want to build a more actionable model. One in which we can use to try to optimize which variables to spend resources on to maximize home video sales. In short, this means removing a lot of the base variables we used above: domestic total gross (which was the most important feature in our model above) and opening weekend box office totals. (In hindsight, I should have also removed the rotten tomato scores as well, but the following models included that data).  
 
-So a few gradient boosting model iterations later and we have GB11 and GB13:  
+So a few gradient boosting model iterations later and we have GB11:  
 
 ```python
 #GB11
@@ -171,14 +171,6 @@ gbmodel11 = GradientBoostingRegressor(subsample = 0.9, n_estimators = 3000, rand
 10^RMSE = 2.5013
 ```  
 
-```python
-#GB13
-gbmodel13 = GradientBoostingRegressor(random_state=1000, n_estimators=100, min_samples_split=5, 
-                                      min_samples_leaf=2, max_features = 3, subsample=1.0, 
-                                      learning_rate=0.005, max_depth = 3)
-```  
-```
-10^RMSE = 3.2501
-```  
+
 
 
