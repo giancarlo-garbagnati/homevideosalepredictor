@@ -90,7 +90,7 @@ We'll compare this with two other random forest models that I tinkered with. RF2
 ```
 10^RMSE = 1.9822
 ```
-RF3 used GridSearch and cross-validation to determine hyperparameter values of 3000 estimators, a min_samples_leaf of 9, and a min_samples_split of 2 (min number of sampels required to split in an internal node). This performs relatively as well as the above.
+RF3 used GridSearch and cross-validation to determine hyperparameter values of 3000 estimators, a min_samples_leaf of 9, and a min_samples_split of 2 (min number of samples required to split in an internal node). This performs relatively as well as the above.
 ```
 10^RMSE = 1.9887
 ```
@@ -146,9 +146,38 @@ Most times it's just as (if not more) important to know how much each variable a
 |month          |0.016677  |
 |mpaarating     |0.016345  |
 
+To get successful home video sales, it looks like the gross domestic box office totals is by far the most meaningful variable. Release date (month and year) seems to be important as well. Next, we have opening weekend box office numbers. The rotten tomatoes user rating numbers is next, and is more than double the importance of the rotten tomatoes critic rating (down at 8th most important feature). Following that, we have a variable that represents a ratio of opening weekend sales over the total box office sales. Next, we have runtime, and as mentioned rotten tomatoes critic rating. Looking at the importance numbers though, only the first five seem to have more than a 0.05 importance, and only the top two (dtg2016a and reldate) have more than 0.1 importance.  
 
+These numbers were generated through a call to a model variable, ```feature_importances_```.  
 
+However, here's a caveat regarding these feature importance numbers. According to this model, the gross domestic total is the most meaningful variable, which makes intuitive sense. Also, we can likely make an intuitive guess as to the directionality of this variable (though we don't know for certain from these numbers!); likely more box office sales means more home video sales. However, how does theatrical release date (the next most important feature) affect home video sales? We don't have an intuitive answer for this, nor does the feature importances tell us this.  
 
-It's not a perfect means of looking at variables and their influence on multivariable models, but it gives some insight into this. Sometimes, building a simple linear regression model is more desirable, as linear regression models' it 
+So while random forest/gradient boosting models are typically much more accurate at predicting something like home video sales of movies, a simple linear regression model still has value when it comes to model/variable interpretability. Linear regression models will give coefficients for each variable, and the coefficient should give the directionality and magnitude of importance of each feature (whereas as we just demonstrated, the other two models really only gives magnitude). We'll address this more later however.  
+
+#### Actionable model
+
+Now, let's make this model more actionable. What do I mean by this? The models described above uses variables that you would only get after the movie was shot, editted, and released in the theatre. At that point, a movie production company wouldn't have much influence on the video sales, and the models made above can only serve to predict based on events that have already occured.  
+
+Let's say we want to build a more actionable model. One in which we can use to try to optimize which variables to spend resources on to maximize home video sales. In short, this means removing a lot of the base variables we used above: domestic total gross (which was the most important feature in our model above) and opening weekend box office totals. (In hindsight, I should have also removed the rotten tomato scores as well, but the following models included that data).  
+
+So a few gradient boosting model iterations later and we have GB11 and GB13:  
+
+```python
+#GB11
+gbmodel11 = GradientBoostingRegressor(subsample = 0.9, n_estimators = 3000, random_state = 1000, 
+                                     learning_rate = 0.001, min_samples_leaf = 16, max_depth=5)
+```  
+```
+10^RMSE = 2.5013
+```  
+
+```python
+#GB13
+gbmodel13 = GradientBoostingRegressor(random_state=1000, n_estimators=100, min_samples_split=5, min_samples_leaf=2,
+                                      max_features = 3, subsample=1.0, learning_rate=0.005, max_depth =3)
+```  
+```
+10^RMSE = 3.2501
+```  
 
 
