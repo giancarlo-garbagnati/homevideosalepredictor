@@ -165,7 +165,7 @@ So a few gradient boosting model iterations later and we have GB11 and GB13:
 ```python
 #GB11
 gbmodel11 = GradientBoostingRegressor(subsample = 0.9, n_estimators = 3000, random_state = 1000, 
-                                     learning_rate = 0.001, min_samples_leaf = 16, max_depth=5)
+                                      learning_rate = 0.001, min_samples_leaf = 16, max_depth=5)
 ```  
 ```
 10^RMSE = 2.5013
@@ -173,8 +173,9 @@ gbmodel11 = GradientBoostingRegressor(subsample = 0.9, n_estimators = 3000, rand
 
 ```python
 #GB13
-gbmodel13 = GradientBoostingRegressor(random_state=1000, n_estimators=100, min_samples_split=5, min_samples_leaf=2,
-                                      max_features = 3, subsample=1.0, learning_rate=0.005, max_depth =3)
+gbmodel13 = GradientBoostingRegressor(random_state=1000, n_estimators=100, min_samples_split=5, 
+                                      min_samples_leaf=2, max_features = 3, subsample=1.0, 
+                                      learning_rate=0.005, max_depth = 3)
 ```  
 ```
 10^RMSE = 3.2501
