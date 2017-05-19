@@ -121,6 +121,15 @@ gbmodel7 = GradientBoostingRegressor(subsample = 0.9, n_estimators = 3000, rando
 performed the best of the gradient boosting models I tried.
 ```
 10^RMSE = 1.9629
-```
+```  
+Here are the scatterplots for GB7:
+Predictions vs Actual (Test Set):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB7-test.png "GB7-Predictions vs Actual (Test set)")  
+
+Predictions vs Actual (Holdout Set):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB7-holdout.png "GB7-Predictions vs Actual (Holdout set)")  
+
+
+
 
 , a max number of features (max number of features to look at before deciding on a split) of 5, 
