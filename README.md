@@ -8,7 +8,7 @@ Using movie data (production data, box office data, etc), I was curious to see h
 
 ## Data Acquisition
 
-All of the data for this project was sourced through web scraping through three websites (box office mojo, the-numbers, and rotten tomatoes) using the python package, BeautifulSoup. 
+All of the data for this project was sourced through web scraping through three websites (box office mojo, the-numbers, and rotten tomatoes) using the python package, [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/). 
 
 The general scraping strategy was to scrap from one website (box office mojo, in this case), then use the movie title to locate the same movie on the other websites. Other identifying information scraped from the first website was used to corroborate that we were looking at the correct movie from the other movies.
 
@@ -42,7 +42,7 @@ Total video sales (dvd + bluray sales), after an 8 week period
 Training/test set - 1505 movies from 2006 to 2015  
 Hold out set - 91 movies from 2016  
 
-### Modeling/Results
+## Modeling/Results
 
 #### Linear Regression / Baseline  
 
@@ -176,6 +176,28 @@ Predictions vs Actual (Test Set):
 
 Predictions vs Actual (Holdout Set):  
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB11-holdout.png "GB11-Predictions vs Actual (Holdout set)")  
+
+Expectedly, it doesn't perform as well as if we had the box office information, but I still think it's a meaningful model. However, looking at the holdout set (2016) shows that we're over-predicting the home video sales. This is a little problematic, but the trend still holds. Let's look at some feature importances.  
+
+|Feature        |Importance|
+|:-------------:|:--------:|
+|widestrel      |0.458653  |
+|prodbud        |0.152475  |
+|rt_user        |0.140569  |
+|runtime        |0.098225  |
+|rt_critic      |0.073198  |
+|month          |0.048768  |
+|mpaarating     |0.028112  |  
+
+Widest release seems to reign supreme with this model at .46 importance, followed by the production budget (at .15), rotten tomato user rating (at .14), and runtime (at just under .1).  
+
+However, once again we have an issue where with feature importances we have a relative amount of magnitude of importance of each variable, but we don't have directionality. We could guess that pumping more money into a movie budget would correlate with an increase in home video sales, and we could take a guess that being released in more theatres would mean more exposure and thus more home video sales. But those are just guesses.
+
+#### ICE plotting with ML Insights  
+
+The python package [ML Insights](https://github.com/numeristical/introspective) has some functions that can be used to glean a bit more interpretability out of more 'black-box'y models like random forests and gradient boosting models. Specifically, I used it to generate ICE ('Individual Conditional Expectation') plots. In short, each point/line pair represents one of the data points in the model. The point represents the actual value. The line shows what happens when, if you were to hold every other variable constant, if you change one variable over the range of the data, and then uses the model to calculate the predicted y-value. To learn more, reference [Goldstein et al 2014. "Peeking Inside the Black Box: Visualizing Statistical Learning with Plots of Individual Conditional Expectation"](https://arxiv.org/pdf/1309.6392.pdf).  
+
+Let's see how this looks like for GB11 (described above) with some variables.  
 
 
 
