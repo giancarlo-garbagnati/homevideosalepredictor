@@ -199,5 +199,6 @@ The python package [ML Insights](https://github.com/numeristical/introspective) 
 
 Let's see how this looks like for GB11 (described above) with some variables.  
 
-
+ICE plot for GB11 widestrel (widest theatrical release):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB11-ICEwidestrel.png "ICE plot for GB11 widestrel (widest theatrical release)")  
 
