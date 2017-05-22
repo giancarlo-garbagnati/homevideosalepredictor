@@ -202,3 +202,8 @@ Let's see how this looks like for GB11 (described above) with some variables.
 ICE plot for GB11 widestrel (widest theatrical release):  
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB11-ICEwidestrel.png "ICE plot for GB11 widestrel (widest theatrical release)")  
 
+These ICE plots seem to imply that home video sales seem to increase with an increase in number of theaters showing the movie at it's widest release, which is what we guessed above. Likewise, according to the following ICE plot, we seemed to have guessed correctly for production budget:
+
+ICE plot for GB11 prodbud (production budget):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB11-ICEprodbud.png "ICE plot for GB11 prodbud (production budget)")  
+
