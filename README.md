@@ -207,3 +207,8 @@ These ICE plots seem to imply that home video sales seem to increase with an inc
 ICE plot for GB11 prodbud (production budget):  
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB11-ICEprodbud.png "ICE plot for GB11 prodbud (production budget)")  
 
+There were some variables with less straight-forward relationships with home video sales. For example in this model, the ICE plot for rotten tomato critic scores seem to imply people either want to take home movies that are either critic darlings or critically scored.
+
+ICE plot for rtcritic (rotten tomato critic rating):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/ICE-rtcritic.png "ICE plot for rtcritic (rotten tomato critic rating)")  
+
