@@ -218,3 +218,4 @@ ICE plots for genres (animation/horror):
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB7-ICEgenre_animation.png "GB7-ICE plot for genre (animation)")  
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB7-ICEgenre_horror.png "GB7-ICE plot for genre (horror)")  
 
+The features list of GB7 has horror and animation at 0.003573 and 0.000515 importance, respectively, and all the genres collectively had less than 0.015 importance. But it's interesting to note that this model seemed to ascribe a small boost to movies that were animated, and a small penalty to those in the horror genre.
