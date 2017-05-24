@@ -212,5 +212,9 @@ There were some variables with less straight-forward relationships with home vid
 ICE plot for rt_critic (rotten tomato critic rating):  
 ![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/ICE-rtcritic.png "ICE plot for rtcritic (rotten tomato critic rating)")  
 
-Finally, let's look at two more ICE plots. These are from a previous model (GB7) that included all of the genres.
+Finally, let's look at two more ICE plots. These are from a previous model (GB7) that included all of the genres.  
+
+ICE plots for genres (animation/horror):  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB7-ICEgenre_animation.png "GB7-ICE plot for genre (animation)")  
+![alt text](https://raw.githubusercontent.com/giancarlo-garbagnati/homevideosalepredictor/master/images/GB7-ICEgenre_horror.png "GB7-ICE plot for genre (horror)")  
 
