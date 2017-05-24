@@ -31,7 +31,7 @@ The following features are the variables that were scrapped, but not necessarily
   * Year released  
   * Month released  
   
-##### Categorical (created through get_dummies() pandas call):  
+##### Categorical (created through ```get_dummies()``` pandas call):  
   * Genre  
   * Director  
 
