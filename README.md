@@ -62,7 +62,7 @@ Here we can see our predicted values are quite off. However, what we also can se
 
 #### Linear Regression, redux  
 
-So assuming this is the case, one thing we can do is to transform the target values (home video sales numbers, the 'y'/target model values). So I redid the baseline model with this new transformed target values. Additionally, with this transformation, we can't simply use RSME anymore; we have to use 10^RMSE, which gives us:  
+So assuming this is the case, one thing we can do is to transform the target values (home video sales numbers, the 'y'/target model values) on a logarithmic scale (```log(y)```). So I redid the baseline model with this new transformed target values. Additionally, with this transformation, we can't simply use RSME anymore; we have to use 10^RMSE, which gives us:  
 ```
 10^RMSE = 2.38
 ```  
